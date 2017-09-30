@@ -10,12 +10,19 @@ i. This function should take three arguments.
 ii. For example, if quadratic equation is Ax2 + Bx + C. The function should take A,B,C as arguments and return a solution as array.
 */
 
+import java.util.Arrays;
+
 public class Calculator {
 
 	public static void main(String[] args) {
 		Calculator test = new Calculator();
-		System.out.println(test.addition(1,2));
-	}
+//		System.out.println(test.addition(1,2));
+        System.out.println(Arrays.toString(test.quadraticEquation(1, 2, 3)));
+        System.out.println(Arrays.toString(test.quadraticEquation(0, 1, 1)));
+        System.out.println(Arrays.toString(test.quadraticEquation(0, 0, 1)));
+        System.out.println(Arrays.toString(test.quadraticEquation(1, 0, 1)));
+        System.out.println(Arrays.toString(test.quadraticEquation(1, 0, -1)));
+    }
 	
 	public double addition(double a, double b) {
 		return a + b;
@@ -68,18 +75,23 @@ public class Calculator {
 	}
 	
 	public double[] quadraticEquation (double A, double B, double C) {
-		
-		double discriminant = B * B - 4 * A * C;
-		if (discriminant < 0) {
-			System.out.println("no real number solution");
-		} else {
-			double x1 = (-1 * B + Math.sqrt (discriminant)) / 2 * A;
-			double x2 = (-1 * B - Math.sqrt (discriminant)) / 2 * A;
-			double[] array = {x1, x2}; 
-		}
-		double x1;
-		double x2;
-		double[] array = {x1, x2}; 
-		return array;
+		if (A == 0) {
+            if (B == 0) {
+                System.out.println("no real number solution");
+                return null;
+            } else {
+                return new double[]{- C / B};
+            }
+        } else {
+            double discriminant = B * B - 4 * A * C;
+            if (discriminant < 0) {
+                System.out.println("no real number solution");
+                return null;
+            } else {
+                double x1 = (-1 * B + Math.sqrt(discriminant)) / (2 * A);
+                double x2 = (-1 * B - Math.sqrt(discriminant)) / (2 * A);
+                return new double[]{x1, x2};
+            }
+        }
 	}
 }

@@ -13,21 +13,21 @@ public class Book {
 	}
 	
 	public Book(int size, int price, String name) {
-		super(); // there seems no parent class, just remove it
+		super(); // there seems no parent class, just remove it   <-- actually, every class has a parent Class: Object.
 		this.size = size;
 		this.price = price;
 		this.name = name;
 	}
 	
 	public Book(int price) {
-	// duplicated method, change to "public Book(double price) {"
+	// duplicated method, change to "public Book(double price) {"  <-- or, public Book(int size, int price)
 		this.price = price;
 	}
 	
 	public setName(String name) { 
 	// error is because of "the missing of return type", there is two way to solve this error
 	// 1) change to "public String getName(String name){", it's better to use "get" here
-	// 2) if you want to "set", you don't have to "return", so just keep the first sentence 
+	// 2) if you want to "set", you don't have to "return", so make the function returns void type
 	//	  and change "return name" to "this.name = name"
 		return name;
 	}

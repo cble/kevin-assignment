@@ -14,7 +14,11 @@ public class Vowel {
 	}
 	
 	public String removeVowelsFromString(String input){
-		
+		// input could be null
+        if (input == null) {
+            return null;
+        }
+
 		String result = input.replaceAll("[AEIOUaeiou]","");	
 		return result;
 	}

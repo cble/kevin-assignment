@@ -15,6 +15,10 @@ public class Anagrams {
 	}
 	
 	public boolean checkIfTwoStringsAreAnagrams(String s1, String s2){
+        // input could be null
+        if (s1 == null || s2 == null) {
+            return false;
+        }
 		
 		if(s1.length() != s2.length()) {
 			System.out.println("\""+ s1 + "\" & \"" + s2 + "\" are not anagrams");
@@ -23,18 +27,18 @@ public class Anagrams {
 		}else {
 			char[] s1Array = s1.toCharArray();
 			char[] s2Array = s2.toCharArray();
-			
+
 			Arrays.sort(s1Array);
 			Arrays.sort(s2Array);
-			
+
 			if	(Arrays.equals(s1Array, s2Array)) {
 				System.out.println("\""+ s1 + "\" & \"" + s2 + "\" are anagrams");
-			
+		        return true;
 			}else {
 				System.out.println("\""+ s1 + "\" & \"" + s2 + "\" are not anagrams");
+                return false;
 			}
 		}
-	return true;
 	}
 
 }
