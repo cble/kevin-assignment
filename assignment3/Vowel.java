@@ -6,20 +6,16 @@ ii. Should return the input string after omitting the vowels. Here is the protot
 
 public class Vowel {
 
-	public static void main (String[] args) {
+		public static void main (String[] args) {
+				Vowel test = new Vowel();
+				System.out.println(test.removeVowelsFromString("abcadefgf"));
+		}
 		
-		Vowel test = new Vowel();
-		System.out.println(test.removeVowelsFromString("abcadefgf"));
-		
-	}
-	
-	public String removeVowelsFromString(String input){
-		// input could be null
-        if (input == null) {
-            return null;
-        }
-
-		String result = input.replaceAll("[AEIOUaeiou]","");	
-		return result;
-	}
+		public String removeVowelsFromString(String input){
+		        if (input == null) {
+		            	return null;
+		        }
+				String result = input.replaceAll("[AEIOUaeiou]","");	
+				return result;
+		}
 }
