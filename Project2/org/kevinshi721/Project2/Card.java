@@ -1,4 +1,4 @@
-package com.kevinshi721.Project2;
+package org.kevinshi721.Project2;
 
 public class Card {
 
@@ -27,8 +27,20 @@ public class Card {
     }
 
     public void display() {
+        System.out.println(this.toString());
+    }
+
+    @Override
+    public String toString() {
         String displayNum = numDisplayName[num - 2];
         String displaySuit = suitDisplayName[suit];
-        System.out.printf("%s of %s\n", displayNum, displaySuit);
+        return String.format("%s of %s", displayNum, displaySuit);
+    }
+
+    public int compareWith(Card other) {
+        if (this.getSuit() != other.getSuit()) {
+            return this.getSuit() - other.getSuit();
+        }
+        return this.getNum() - other.getNum();
     }
 }
